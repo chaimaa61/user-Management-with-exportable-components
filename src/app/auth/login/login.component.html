@@ -1,0 +1,15 @@
+<div class="container">
+        <h1>Login</h1>
+        <form (ngSubmit)="authenticate()">
+               
+                    <input type="email" [(ngModel)]="loginRequest.username" required  placeholder="Email" name="email">
+                
+                    <input type="password"  [(ngModel)]="loginRequest.password" required   placeholder="Password" name="password">
+            
+            <button type="submit">Login</button>
+
+            
+        </form>
+        <i><a [routerLink] = "['/reset-password']" >Forgot password ? </a></i>
+<!-- <router-outlet></router-outlet> -->
+</div>

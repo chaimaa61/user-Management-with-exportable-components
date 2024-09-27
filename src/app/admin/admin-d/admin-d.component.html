@@ -1,0 +1,35 @@
+<!-- sidebar -->
+ <div class="sidebar">
+<a href="#dashboard" class="active">Dashboard</a>
+<a href="#users">Users</a>
+<a href="#manageUsers">Manage users</a>
+<a href="#other">Other</a>
+</div>
+
+
+
+
+
+<!-- Dashboard -->
+
+<div class="container">
+  <h3 class="dash">Dashboard</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <!-- <th scope="row">1</th> -->
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.role}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
