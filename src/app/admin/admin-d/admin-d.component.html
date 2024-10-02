@@ -1,14 +1,10 @@
 <!-- sidebar -->
- <div class="sidebar">
-<a href="#dashboard" class="active">Dashboard</a>
-<a href="#users">Users</a>
-<a href="#manageUsers">Manage users</a>
-<a href="#other">Other</a>
+<div class="sidebar">
+  <a href="#dashboard" class="active">Dashboard</a>
+  <a href="#users">Users</a>
+  <a href="#manageUsers">Manage users</a>
+  <a href="#other">Other</a>
 </div>
-
-
-
-
 
 <!-- Dashboard -->
 
@@ -25,11 +21,49 @@
     <tbody>
       <tr *ngFor="let user of users">
         <!-- <th scope="row">1</th> -->
-        <td>{{user.id}}</td>
-        <td>{{user.username}}</td>
-        <td>{{user.role}}</td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <button (click)="edit(user)">Edit <i class="bi bi-pencil"></i></button>
+        <button (click)="delete(user)" class="btn-primary">
+          Delete <i class="bi bi-trash"></i>
+        </button>
       </tr>
-      
     </tbody>
   </table>
+</div>
+
+<!-- form for editing -->
+<div [ngClass]="showedit ? 'formo' : 'formm'">
+  <div *ngIf="editUser" class="editform">
+    <h4>Edit Form</h4>
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          [(ngModel)]="editUser.username"
+          id="username"
+          name="username"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <input
+          [(ngModel)]="editUser.role"
+          id="role"
+          name="role"
+          class="form-control"
+        />
+      </div>
+      <div class="butt">
+        <button type="button" (click)="save()" class="btn btn-success">
+          Save
+        </button>
+        <button type="button" (click)="cancelEdit()" class="btn btn-secondary">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

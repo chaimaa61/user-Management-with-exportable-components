@@ -24,5 +24,15 @@ export class ApiService {
     return this.http.get<User>(`${this.apiUrl}/user?id=${id}`)
   }
 
+  updateUser(user: User): Observable<User> {
+    const url = `${this.apiUrl}?id=${user.id}`; // Assumes the API follows RESTful principles 
+    return this.http.put<User>(url, user); // Or use PATCH if you prefer
+  }
+  deleteUser(user :User){
+    const url = `${this.apiUrl}?id=${user.id}`; // Assumes the API follows RESTful principles 
+    return this.http.delete<User>(url); // Or use PATCH if you prefer
+ 
+  }
+
 }
 

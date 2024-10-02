@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth.service';
 import { ApiService } from '../Services/api.service';
 import { LoginRequest } from 'src/app/interfaces/LoginRequest';
 import { Role } from 'src/app/enums/role';
 import { UserService } from 'src/app/core/Services/user.service';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +21,12 @@ export class LoginComponent implements OnInit {
     
   }
   
+  private user?:User;
+
   authenticate() {
     this.api.authenticate(this.loginRequest).subscribe(
       (result) => {
+        this.user = result;
         console.log(result)
         // Handle successful login
         if (result.role === Role.admin) {

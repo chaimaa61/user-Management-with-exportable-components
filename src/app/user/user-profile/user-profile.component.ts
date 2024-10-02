@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/auth/Services/api.service';
 import { UserService } from 'src/app/core/Services/user.service';
-import { Role } from 'src/app/enums/role';
 import { User } from 'src/app/interfaces/user';
 
 @Component({

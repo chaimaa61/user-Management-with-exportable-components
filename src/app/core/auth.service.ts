@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import { User } from '../interfaces/user';
+import { Role } from '../enums/role';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor() { }
-  private user = null
-  login(){
-
+ private user = {
+  role:Role.admin
   }
+isAdmin(): boolean{
+  return this.user.role === 'admin';
+}
 
-  isloggedin():boolean{
-    return this.user !== null;
-  }
+isUser(): boolean{
+  return this.user.role === 'user';
+}
+ 
 }

@@ -9,9 +9,10 @@ import { User } from 'src/app/interfaces/user';
 })
 export class ResetPasswordComponent implements OnInit {
 
+  email = ''
+
   onSubmit(formReset:any){
-    console.log("formSubmitted" , formReset.value);
-    formReset.reset();
+    console.log("formSubmitted" , formReset.email);
   }
   ngOnInit(): void {
     
